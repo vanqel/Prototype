@@ -1,10 +1,11 @@
 package com.example.prototype.shapes;
 
+import com.example.prototype.fabric.Cell;
+import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public abstract class Shape {
+public abstract class Shape implements Cell {
     protected Color color;
     protected double size;
     protected double x;
@@ -39,5 +40,11 @@ public abstract class Shape {
     @Override
     public String toString() {
         return null;
+    }
+    public Color getColor(){
+        return color;
+    }
+    public Node getNode(){
+        return (Node) clone();
     }
 }

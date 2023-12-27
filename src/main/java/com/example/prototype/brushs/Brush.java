@@ -1,10 +1,10 @@
 package com.example.prototype.brushs;
 
+import com.example.prototype.fabric.Cell;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public abstract class Brush {
+public abstract class Brush implements Cell {
     protected Color color;
     protected double size;
     protected double x;

@@ -35,7 +35,7 @@
             <children>
                <ColorPicker fx:id="colorSelect" prefHeight="25.0" prefWidth="396.0" style="-fx-border-radius: 150; -fx-background-color: white; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <value>
-                     <Color red="1.0" />
+                     <Color />
                   </value>
                </ColorPicker>
                <Slider fx:id="size" min="10.0" prefHeight="18.0" prefWidth="288.0" showTickLabels="true" style="-fx-background-color: white;" value="1.0" GridPane.columnIndex="1">

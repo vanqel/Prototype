@@ -1,5 +1,7 @@
 package com.example.prototype.Controller;
 
+
+import com.example.prototype.fabric.CellFactory;
 import com.example.prototype.brushs.Brush;
 import com.example.prototype.brushs.Ease;
 import com.example.prototype.brushs.Just;
@@ -20,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     public Slider size;
+    private  Color color = new Color(0.7,0.7,0.7,1);
     @FXML
     public TitledPane listBrushes;
     @FXML
@@ -32,29 +35,28 @@ public class HelloController implements Initializable {
     private ObservableList contentBrushes;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Circle circle = new Circle(Color.RED, 1);
-        Square square = new Square(Color.RED,1);
-        Triangle triangle = new Triangle(Color.RED,1);
-        Rectangle rectangle = new Rectangle(Color.RED,1);
+        Circle circle = new Circle(color, 3);
+        Square square = new Square(color,1);
+        Triangle triangle = new Triangle(color,1);
+        Rectangle rectangle = new Rectangle(color,1);
 
-        ListView<Shape> ListViewShapes = new ListView<>();
+
+        ListView<Shape> listViewShapes = new ListView<>();
+        listViewShapes.setCellFactory(new CellFactory<>());
         contentShapes = FXCollections.observableArrayList();
-        contentShapes.add(circle);
-        contentShapes.add(square);
-        contentShapes.add(rectangle);
-        contentShapes.add(triangle);
-        ListViewShapes.setItems(contentShapes);
-        ListViewShapes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        listShapes.setContent(ListViewShapes);
+        contentShapes.addAll(circle,square,rectangle,triangle);
+        listViewShapes.setItems(contentShapes);
 
-        Sweet brush1 = new Sweet(Color.BLACK,1);
-        Just brush2 = new Just(Color.BLACK,1);
+        listViewShapes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        listShapes.setContent(listViewShapes);
+
+        Sweet brush1 = new Sweet(color,1);
+        Just brush2 = new Just(color,1);
         Ease brush3 = new Ease(Color.WHITE,1);
-        ListView ListViewBrushes = new ListView();
+        ListView<Shape> ListViewBrushes = new ListView<>();
+        ListViewBrushes.setCellFactory(new CellFactory<>());
         contentBrushes = FXCollections.observableArrayList();
-        contentBrushes.add(brush1);
-        contentBrushes.add(brush2);
-        contentBrushes.add(brush3);
+        contentBrushes.setAll(brush1,brush2,brush3);
         ListViewBrushes.setItems(contentBrushes);
         ListViewBrushes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         listBrushes.setContent(ListViewBrushes);

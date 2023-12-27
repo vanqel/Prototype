@@ -10,6 +10,11 @@ public class Ease extends Brush implements Cloneable{
     }
 
     @Override
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
     public void draw(GraphicsContext gc) {
         gc.setLineWidth(2.0);
         gc.setFill(Color.WHITE);

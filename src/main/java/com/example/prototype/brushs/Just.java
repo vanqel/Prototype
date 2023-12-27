@@ -8,6 +8,12 @@ public class Just extends Brush implements Cloneable{
     public Just(Color color, double size) {
         super(color, size);
     }
+
+    @Override
+    public Color getColor() {
+        return color;
+    }
+
     @Override
     public void draw(GraphicsContext gc) {
         gc.setFill(color);

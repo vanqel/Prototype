@@ -9,4 +9,6 @@ module com.example.prototype {
     opens com.example.prototype.shapes to javafx.fxml;
     exports com.example.prototype.Controller;
     opens com.example.prototype.Controller to javafx.fxml;
+    exports com.example.prototype.fabric;
+    opens com.example.prototype.fabric to javafx.fxml;
 }

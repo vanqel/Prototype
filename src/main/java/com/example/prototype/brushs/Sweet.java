@@ -11,6 +11,11 @@ public class Sweet extends Brush implements Cloneable{
     }
 
     @Override
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
     public void draw(GraphicsContext gc) {
         gc.setFill(color);
         gc.fillOval(x - Math.random()*5 - 10/2*size, y-Math.random()*5- 10/2*size, 10*size, 10*size);
